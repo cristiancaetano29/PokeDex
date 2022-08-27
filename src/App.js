@@ -1,9 +1,47 @@
+import { useEffect, useState } from 'react';
 import './App.css';
+import CampoDeBusca from './components/CampoDeBusca';
+import NavBar from './components/NavBar';
+import PokeDex from './components/PokeDex';
+import axios from 'axios';
+import { Pokemon } from './Api/api';
 
 function App() {
+
+  const [pokemons, setPokemons] = useState([]);
+  const [NaoAchou, setNaoAchou] = useState(false);
+
+  const GetPoke = () => {
+    let rotas = []
+    for(let i = 1; i < 49; i++){
+      rotas.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
+    }
+    return axios.all(rotas.map((url) => axios.get(url))).then((res) => setPokemons(res.map((res) => res.data)))
+  }
+
+  const BuscaVal = async (pokemon) => {
+    if(!pokemon){
+      GetPoke()
+    }
+    setNaoAchou(false)
+    const resultado = await Pokemon(pokemon)
+    if(!resultado)
+      setNaoAchou(true)  
+    else{
+      setPokemons([resultado])
+    }
+
+  }
+
+  useEffect(() => {
+    GetPoke()
+  },[])
+
   return (
-    <div className="justify-center flex items-center w-full bg-slate-400 text-center">
-      <h1>Rodando</h1>
+    <div className="">
+      <NavBar />
+      <CampoDeBusca Busca = { BuscaVal }/>
+      <PokeDex pokemons={ pokemons }/>
     </div>
   );
 }
