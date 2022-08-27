@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Pokemon} from '../Api/api';
 
-export default function CampoDeBusca (props) {
+const CampoDeBusca = (props) => {
 
     const [texto, setTexto] = useState();
     const { Busca } = props
-
-   
 
     const changeHandle = (event) => {
         setTexto(event.target.value)
@@ -24,7 +21,6 @@ export default function CampoDeBusca (props) {
     const ButtonHandle = () =>{
         Busca(texto.toLowerCase())
     }
-
 
     return (
         <div className=" flex my-0 py-0 justify-center items-center">
@@ -46,4 +42,4 @@ export default function CampoDeBusca (props) {
     );
 }
 
-//export default CampoDeBusca;
+export default CampoDeBusca;

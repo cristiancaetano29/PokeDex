@@ -30,7 +30,6 @@ function App() {
     else{
       setPokemons([resultado])
     }
-
   }
 
   useEffect(() => {
