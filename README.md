@@ -1,4 +1,4 @@
-# PokeDex
+# PokeDex Status: Working
 
 #### Um Projeto para Testar novas Técnologias e Ultilizar o que eu mais Amo! 
 #### Consumir Dados de uma API
