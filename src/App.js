@@ -19,19 +19,6 @@ function App() {
     return axios.all(rotas.map((url) => axios.get(url))).then((res) => setPokemons(res.map((res) => res.data)))
   }
 
-  const BuscaVal = async (pokemon) => {
-    if(!pokemon){
-      GetPoke()
-    }
-    setNaoAchou(false)
-    const resultado = await Pokemon(pokemon)
-    if(!resultado)
-      setNaoAchou(true)  
-    else{
-      setPokemons([resultado])
-    }
-  }
-
   const pokeFilter = (poke) => {
     let pokemonsAchados = []
     if(poke === '' || poke === undefined){
