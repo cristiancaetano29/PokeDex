@@ -32,6 +32,19 @@ function App() {
     }
   }
 
+  const pokeFilter = (poke) => {
+    let pokemonsAchados = []
+    if(poke === '' || poke === undefined){
+      GetPoke()
+    }
+    pokemons.forEach((pokemon) => {
+      if(pokemon.name.includes(poke)){
+        pokemonsAchados.push(pokemon)
+      }
+    })
+    setPokemons(pokemonsAchados);
+}
+
   useEffect(() => {
     GetPoke()
   },[])
@@ -39,7 +52,7 @@ function App() {
   return (
     <div className="">
       <NavBar />
-      <CampoDeBusca Busca = { BuscaVal }/>
+      <CampoDeBusca pokeFilter = { pokeFilter }/>
       <PokeDex pokemons={ pokemons }/>
     </div>
   );
