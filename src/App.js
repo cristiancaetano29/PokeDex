@@ -4,12 +4,12 @@ import CampoDeBusca from './components/CampoDeBusca';
 import NavBar from './components/NavBar';
 import PokeDex from './components/PokeDex';
 import axios from 'axios';
-import { Pokemon } from './Api/api';
+//import { Pokemon } from './Api/api';
 
 function App() {
 
   const [pokemons, setPokemons] = useState([]);
-  const [NaoAchou, setNaoAchou] = useState(false);
+  //const [NaoAchou, setNaoAchou] = useState(false);
 
   const GetPoke = () => {
     let rotas = []
