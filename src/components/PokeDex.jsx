@@ -7,10 +7,10 @@ const PokeDex = (props) => {
     return (
         <div>
             <div className="flex flex-row justify-between items-center py-3 font">
-                {/*<h1 className="text-4xl ml-10 rounded-lg bg-sky-600 text-white py-2 ">PokeDex</h1>*/}
+                {/*<h1 className="text-4xl ml-10 rounded-lg bg-sky-600 text-white py-2 ">PokeDex</h1>
                 <div className="text-4xl m-auto py-10">
                     Paginação(Soon!!!)
-                </div>
+                </div>*/}
             </div>
             <div>
                 <div className="grid gap-3 grid-cols-4 ">
